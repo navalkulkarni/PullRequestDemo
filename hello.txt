@@ -1,5 +1,8 @@
 import { LightningElement, wire } from 
+import {NavigationMixin} from 'lightning/navigation';import { LightningElement, wire } from 
 import {NavigationMixin} from 'lightning/navigation';
+import getContacts from '@salesforce/apex/FetchContact.
+export default class ContactsDisplay extends NavigationMixin(LightningElement) {
 import getContacts from '@salesforce/apex/FetchContact.
 export default class ContactsDisplay extends NavigationMixin(LightningElement) {
 
@@ -19,7 +22,14 @@ export default class ContactsDisplay extends NavigationMixin(LightningElement) {
  
         });  
         
-         navigateToContactDetail(event){
+         navigateToContactDetail(event){navigateToContactDetail(event){
+        this.contactId = event.target.
+        this[NavigationMixin.Navigate]({
+            type:'standard__recordPage',
+            attributes:{
+                recordId:this.contactId,
+                objectApiName:
+                actionName:'view'
         this.contactId = event.target.
         this[NavigationMixin.Navigate]({
             type:'standard__recordPage',
