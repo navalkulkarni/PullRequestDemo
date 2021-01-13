@@ -1,6 +1,6 @@
-import { LightningElement, wire } from 'lwc';
+import { LightningElement, wire } from 
 import {NavigationMixin} from 'lightning/navigation';
-import getContacts from '@salesforce/apex/FetchContact.getContacts';
+import getContacts from '@salesforce/apex/FetchContact.
 export default class ContactsDisplay extends NavigationMixin(LightningElement) {
 
     @wire(getContacts)
@@ -8,12 +8,12 @@ export default class ContactsDisplay extends NavigationMixin(LightningElement) {
     contactId;
 
     navigateToContactDetail(event){
-        this.contactId = event.target.value;
+        this.contactId = event.target.
         this[NavigationMixin.Navigate]({
             type:'standard__recordPage',
             attributes:{
                 recordId:this.contactId,
-                objectApiName:'Contact',
+                objectApiName:
                 actionName:'view'
             }           
  
