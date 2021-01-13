@@ -18,5 +18,17 @@ export default class ContactsDisplay extends NavigationMixin(LightningElement) {
             }           
  
         });  
+        
+         navigateToContactDetail(event){
+        this.contactId = event.target.
+        this[NavigationMixin.Navigate]({
+            type:'standard__recordPage',
+            attributes:{
+                recordId:this.contactId,
+                objectApiName:
+                actionName:'view'
+            }           
+ 
+        });  
     }
 }
